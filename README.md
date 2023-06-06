@@ -95,6 +95,11 @@ And our current power draw is -3210 W, so we are currently selling 3210 Watts to
 A positive value here would mean that we currently buy energy from the provider.
 Please refer to your smart meter user manual for exported OBIS items.
 
+Note:
+Most smart meters will only export basic information via the optical interface when the PIN protection is not deactivated.
+This is by design, as the currently used power is considered privacy sensitive.
+To get the full data set, please refer to the manual of your smart meter on how to enable the full data set.
+
 ## Integration with OpenHAB
 
 The proxy is currently in production use in combination with OpenHAB, but may of course serve other systems.
