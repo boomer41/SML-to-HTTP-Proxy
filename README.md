@@ -100,6 +100,16 @@ Most smart meters will only export basic information via the optical interface w
 This is by design, as the currently used power is considered privacy sensitive.
 To get the full data set, please refer to the manual of your smart meter on how to enable the full data set.
 
+## Debugging SML output
+
+When you have a dump of the meter's output in a file, you can decode the file's content using the following command.
+It will dump every *valid* SML message in the file.
+Invalid messages (e.g. CRC does not match or invalid structure) are ignored.
+
+```shell
+./bin/smlToHttp-native -dump <file>
+```
+
 ## Integration with OpenHAB
 
 The proxy is currently in production use in combination with OpenHAB, but may of course serve other systems.
