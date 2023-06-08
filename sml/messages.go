@@ -12,6 +12,12 @@ func (f *File) String() string {
 	return string(v)
 }
 
+func (f *File) StringPretty() string {
+	v, _ := json.MarshalIndent(f, "", "  ")
+
+	return string(v)
+}
+
 type Message struct {
 	TransactionId []byte
 	GroupNo       uint8

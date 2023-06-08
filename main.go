@@ -2,20 +2,23 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
+	"smlToHttp/sml"
 
 	"gopkg.in/yaml.v3"
 )
 
 func main() {
 	configFileFlag := flag.String("config", "", "The config file")
+	dumpFlag := flag.String("dump", "", "A file to decode binary SML messages from for debugging. Prints the contents to the terminal and then exits.")
 
 	flag.Parse()
 
-	if len(*configFileFlag) == 0 {
+	if len(*configFileFlag) == 0 && len(*dumpFlag) == 0 {
 		print(
 			"SML to HTTP proxy\n" +
 				"  Copyright (C) 2023  Stephan Brunner\n" +
@@ -25,6 +28,11 @@ func main() {
 				"  The source code is available at https://github.com/boomer41/SML-to-HTTP-proxy\n\n",
 		)
 		flag.Usage()
+		return
+	}
+
+	if len(*dumpFlag) != 0 {
+		dumpFile(*dumpFlag)
 		return
 	}
 
@@ -90,4 +98,44 @@ func loadConfig(path string) (*config, error) {
 	}
 
 	return &c, nil
+}
+
+func dumpFile(filePath string) {
+	f, err := os.OpenFile(filePath, os.O_RDONLY, 0)
+
+	if err != nil {
+		fmt.Printf("failed to load file to dump: %v\n", err)
+		os.Exit(1)
+	}
+
+	defer f.Close()
+
+	reader := sml.NewReader(f)
+
+	dumpedAny := false
+
+	for {
+		var msg *sml.File
+		msg, err = reader.ReadFile()
+
+		if err != nil {
+			break
+		}
+
+		dumpedAny = true
+		fmt.Println("found file:")
+		fmt.Printf("%s\n\n", msg.StringPretty())
+	}
+
+	if err == nil || err == io.EOF {
+		if !dumpedAny {
+			fmt.Printf("no valid sml files found in file\n")
+			os.Exit(2)
+		}
+
+		return
+	}
+
+	fmt.Printf("failed to read from file: %v\n", err)
+	os.Exit(1)
 }
