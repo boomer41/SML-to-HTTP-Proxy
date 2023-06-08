@@ -124,7 +124,7 @@ func dumpFile(filePath string) {
 
 		dumpedAny = true
 		fmt.Println("found file:")
-		fmt.Printf("%s\n\n", msg.StringPretty())
+		fmt.Printf("%s\n\n", msg)
 	}
 
 	if err == nil || err == io.EOF {

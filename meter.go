@@ -136,7 +136,7 @@ func (m *meterInstance) handleConnection(conn net.Conn) error {
 
 		if !m.config.DisableReceptionLog {
 			if m.config.Debug {
-				m.logger.Printf("received SML file: %v", f)
+				m.logger.Printf("received SML file:\n%s", f)
 			} else {
 				m.logger.Printf("received SML file")
 			}
