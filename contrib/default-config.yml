@@ -1,0 +1,13 @@
+web:
+  address: 127.0.0.1:11123
+  disable_request_log: false
+
+meters:
+  #- id: my_smartmeter
+  #  address: 1.2.3.4:8234
+  #  reconnect_delay: 10
+  #  read_timeout: 5
+  #  connect_timeout: 10
+  #  debug: false
+  #  disable_reception_log: false
+
