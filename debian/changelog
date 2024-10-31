@@ -1,4 +1,4 @@
-sml-to-http (1.0.1) main; urgency=medium
+sml-to-http (1.0.0) main; urgency=medium
 
   * Initial Debian package.
 
