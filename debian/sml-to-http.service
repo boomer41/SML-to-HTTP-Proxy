@@ -1,0 +1,14 @@
+[Unit]
+Description=SML to HTTP proxy
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=simple
+User=_sml-to-http
+ExecStart=/usr/bin/sml-to-http -config /etc/sml-to-http/config.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = "configure" ]; then
+	addgroup --system --quiet _sml-to-http
+	adduser --system --quiet --ingroup _sml-to-http \
+		--no-create-home --home /nonexistent _sml-to-http
+fi
+
+#DEBHELPER#

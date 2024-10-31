@@ -1,0 +1,19 @@
+Source: sml-to-http
+Section: devel
+Priority: optional
+Maintainer: Stephan Brunner <s.brunner@stephan-brunner.net>
+Build-Depends: build-essential, debhelper (>= 13), dh-exec, golang (>= 1.19)
+Vcs-Browser: https://github.com/boomer41/SML-to-HTTP-Proxy
+Vcs-Git: https://github.com/boomer41/SML-to-HTTP-Proxy.git
+Standards-Version: 4.7.0
+
+Package: sml-to-http
+Architecture: any
+Depends: adduser, ${shlibs:Depends}, ${misc:Depends}
+Description: SML to HTTP proxy
+ This application is designed to read a binary SML stream via TCP/IP
+ and export all values via a simple HTTP REST API using JSON. It is
+ intended to be used with home automation systems to read the values
+ of smart meters. In the most basic configuration, a serial to TCP/IP
+ converter in conjunction with a D0 read head can be used.
+

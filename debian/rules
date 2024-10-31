@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_OPTIONS=nostrip
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	go get
+	go build
+
+override_dh_auto_install:
+	install -Dm644 sml-to-http debian/sml-to-http/usr/bin/sml-to-http
+
+override_dh_auto_clean:
+	rm -f sml-to-http
+	dh_auto_clean
+
