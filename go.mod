@@ -1,4 +1,4 @@
-module smlToHttp
+module sml-to-http
 
 go 1.19
 

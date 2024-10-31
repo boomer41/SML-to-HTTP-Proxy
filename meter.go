@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
-	"smlToHttp/sml"
+	"sml-to-http/sml"
 	"time"
 
 	"golang.org/x/exp/constraints"

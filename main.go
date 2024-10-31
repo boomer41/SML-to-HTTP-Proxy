@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"smlToHttp/sml"
+	"sml-to-http/sml"
 
 	"gopkg.in/yaml.v3"
 )
