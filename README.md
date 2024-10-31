@@ -10,18 +10,8 @@ To build this application first install Go 1.20 or later.
 Then run the provided Makefile:
 
 ```shell
-make
+go build -o smlToHttp
 ```
-
-This builds multiple binaries:
-
-| Path                       | Usage                                                                       |
-|----------------------------|-----------------------------------------------------------------------------|
-| bin/smlToHttp-linux-native | Built for the computer building the application                             |
-| bin/smlToHttp-linux-amd64  | Built for a normal desktop computer                                         |
-| bin/smlToHttp-linux-arm64  | Built for a computer running the ARM64 architecture, e. g. a Raspberry Pi 4 |
-
-Feel free to extend the Makefile if your use case is not dealt with.
 
 ## Usage
 
@@ -50,7 +40,7 @@ meters:
 Then start the application:
 
 ```shell
-./bin/smlToHttp-native -config config.yml
+./smlToHttp -config config.yml
 ```
 
 The log should now yield that the connection is successful and that SML frames are being decoded.
@@ -107,7 +97,7 @@ It will dump every *valid* SML message in the file.
 Invalid messages (e.g. CRC does not match or invalid structure) are ignored.
 
 ```shell
-./bin/smlToHttp-native -dump <file>
+./smlToHttp -dump <file>
 ```
 
 ## Integration with OpenHAB
