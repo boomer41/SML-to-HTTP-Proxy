@@ -6,11 +6,11 @@ In the most basic configuration, a serial to TCP/IP converter in conjunction wit
 
 ## Building
 
-To build this application first install Go 1.20 or later.
-Then run the provided Makefile:
+To build this application first install Go 1.19 or later.
+Then run the actual build:
 
 ```shell
-go build -o smlToHttp
+go build
 ```
 
 ## Usage
