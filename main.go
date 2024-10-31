@@ -21,7 +21,7 @@ func main() {
 	if len(*configFileFlag) == 0 && len(*dumpFlag) == 0 {
 		print(
 			"SML to HTTP proxy\n" +
-				"  Copyright (C) 2023  Stephan Brunner\n" +
+				"  Copyright (C) 2024  Stephan Brunner\n" +
 				"  This program comes with ABSOLUTELY NO WARRANTY.\n" +
 				"  This is free software, and you are welcome to redistribute it\n" +
 				"  under the terms of the GNU GPL v3; see LICENSE.txt and README.md for details.\n\n" +
