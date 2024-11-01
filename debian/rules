@@ -6,7 +6,6 @@ export DEB_BUILD_OPTIONS=nostrip
 	dh $@
 
 override_dh_auto_build:
-	go get
 	go build
 
 override_dh_auto_install:
