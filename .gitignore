@@ -1,4 +1,4 @@
 tmp/
-bin/
+/sml-to-http
 .idea/
 *.iml
